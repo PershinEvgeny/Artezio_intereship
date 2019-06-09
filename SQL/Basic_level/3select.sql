@@ -1,0 +1,1 @@
+SELECT first_name, last_name FROM players WHERE year_of_birth > 1987;
