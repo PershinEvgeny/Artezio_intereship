@@ -1,0 +1,1 @@
+SELECT * FROM footballers.players WHERE year_of_birth IS NOT NULL;
