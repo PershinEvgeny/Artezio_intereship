@@ -1,1 +1,0 @@
-SELECT player.first_name, player.last_name, team.team_name FROM players player INNER JOIN teams team ON player.team_id=team.id; 
