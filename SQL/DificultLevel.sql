@@ -51,3 +51,14 @@ INSERT INTO `office`.`positions` (`id`, `title`) VALUES ('8', 'Economist');
 INSERT INTO `office`.`positions` (`id`, `title`) VALUES ('9', 'Designer');
 INSERT INTO `office`.`positions` (`id`, `title`) VALUES ('10', 'Analyst');
 INSERT INTO `office`.`positions` (`id`, `title`) VALUES ('11', 'Junior');
+
+/*Задание 2. Составьте запросы на выборку данных (SELECT): 
+  Все сотрудники с зарплатами меньше 30 000 рублей. 
+  Всех сотрудники, занимающие определённую должность (например - дизайнеры), с зарплатой меньше 30 000 
+рублей.*/
+SELECT * FROM office.staff WHERE sallary <= 30000;
+
+SELECT staff.first_name, staff.last_name, staff.sallary, positions.title
+FROM office.staff INNER JOIN office.positions
+ON staff.position_id=positions.id
+WHERE title = "Junior" AND sallary <= 30000;
