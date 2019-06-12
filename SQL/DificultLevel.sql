@@ -62,3 +62,57 @@ SELECT staff.first_name, staff.last_name, staff.sallary, positions.title
 FROM office.staff INNER JOIN office.positions
 ON staff.position_id=positions.id
 WHERE title = "Junior" AND sallary <= 30000;
+
+/*Задание 3 (повышенной сложности). Доработайте схему БД таким образом, чтобы можно было хранить информацию о 
+подчинённых. Без каких-либо ограничений: каждый сотрудник может иметь несколько подчинённых (либо не иметь их 
+вовсе), и сам может иметь несколько начальников (либо вовсе начальников не иметь). Составьте запрос на выборку всех 
+подчинённых определённого сотрудника. (Подсказка: гуглить отношение  “many-to-many”). 
+*/
+    CREATE TABLE IF NOT EXISTS dependence (
+ id_boss INT UNSIGNED NOT NULL ,
+ id_slave INT UNSIGNED NOT NULL
+ );
+ 
+INSERT INTO office.dependence (id_boss, id_slave) VALUES (1, 2);
+INSERT INTO office.dependence (id_boss, id_slave) VALUES (1, 3);
+INSERT INTO office.dependence (id_boss, id_slave) VALUES (1, 4);
+INSERT INTO office.dependence (id_boss, id_slave) VALUES (1, 5);
+INSERT INTO office.dependence (id_boss, id_slave) VALUES (1, 6);
+INSERT INTO office.dependence (id_boss, id_slave) VALUES (1, 7);
+INSERT INTO office.dependence (id_boss, id_slave) VALUES (1, 8);
+INSERT INTO office.dependence (id_boss, id_slave) VALUES (1, 9);
+INSERT INTO office.dependence (id_boss, id_slave) VALUES (1, 10);
+INSERT INTO office.dependence (id_boss, id_slave) VALUES (1, 11);
+INSERT INTO office.dependence (id_boss, id_slave) VALUES (1, 12);
+INSERT INTO office.dependence (id_boss, id_slave) VALUES (1, 13);
+INSERT INTO office.dependence (id_boss, id_slave) VALUES (1, 14);
+INSERT INTO office.dependence (id_boss, id_slave) VALUES (1, 15);
+INSERT INTO office.dependence (id_boss, id_slave) VALUES (1, 16);
+INSERT INTO office.dependence (id_boss, id_slave) VALUES (1, 17);
+
+INSERT INTO office.dependence (id_boss, id_slave) VALUES (5, 4);
+INSERT INTO office.dependence (id_boss, id_slave) VALUES (5, 3);
+INSERT INTO office.dependence (id_boss, id_slave) VALUES (5, 8);
+INSERT INTO office.dependence (id_boss, id_slave) VALUES (5, 10);
+INSERT INTO office.dependence (id_boss, id_slave) VALUES (5, 11);
+INSERT INTO office.dependence (id_boss, id_slave) VALUES (5, 2);
+INSERT INTO office.dependence (id_boss, id_slave) VALUES (5, 4);
+INSERT INTO office.dependence (id_boss, id_slave) VALUES (5, 12);
+INSERT INTO office.dependence (id_boss, id_slave) VALUES (5, 6);
+INSERT INTO office.dependence (id_boss, id_slave) VALUES (5, 7);
+
+INSERT INTO office.dependence (id_boss, id_slave) VALUES (9, 13);
+INSERT INTO office.dependence (id_boss, id_slave) VALUES (9, 15);
+INSERT INTO office.dependence (id_boss, id_slave) VALUES (9, 17);
+
+INSERT INTO office.dependence (id_boss, id_slave) VALUES (2, 6);
+INSERT INTO office.dependence (id_boss, id_slave) VALUES (2, 7);
+INSERT INTO office.dependence (id_boss, id_slave) VALUES (2, 14);
+INSERT INTO office.dependence (id_boss, id_slave) VALUES (2, 12);
+INSERT INTO office.dependence (id_boss, id_slave) VALUES (2, 8);
+INSERT INTO office.dependence (id_boss, id_slave) VALUES (2, 10);
+
+ SELECT staff.first_name, staff.last_name FROM office.dependence 
+ INNER JOIN office.staff
+ ON dependence.id_slave=staff.id
+ WHERE dependence.id_boss = 2; 
