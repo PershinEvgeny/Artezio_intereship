@@ -35,22 +35,22 @@ body {
 	float: left;
 	padding-bottom: 50px;
 	padding-right: 30px;
-	background: #ffef51;
+	
 }
 .contacts #FIO_section {
-	background: green;
+	
 }
 .desired_position {
 	width: 100%;
-	background: #e9e9e9;
-	border: solid 3px;
+}
+.sallary {
+	float: right;
+	text-align: right;
 }
 
 table {
 	text-align: left;
-	border: 1px solid #000080;
-	
-	width: 100%;	
+	width: 100%;
 }
 th {
 	vertical-align: top;
@@ -64,9 +64,19 @@ th {
 
 .h0 {
 	border-bottom: solid 3px #ADADAD;
-	font-size: 20px;
+	font-size: 18px;
+	color: #ADADAD;
+	padding-top: 30px;
+	margin-bottom: 20px;
 }
 
 h3 {
+	font-size: 18px;
+	font-weight: 400;
+}
+.grey {
 	color: #ADADAD;
+}
+.greyB {
+	background-color: #d4d4d4;
 }
