@@ -15,11 +15,28 @@ function buttonClick() {
 	}
 	else {
 		var resultDiv = document.getElementById('result');
-		resultDiv.append("x1  + x2 = "+(x1+x2));
+		resultDiv.append("Cумма всех чисел от x1 до x2 = " + sumX1X2(x1,x2));
 	}
 }
 //функция очистки элемента div
 function clearDiv(elementID)
 {
     document.getElementById(elementID).innerHTML = "";
+}
+//функция подсчета суммы всех чисел от х1 до х2
+function sumX1X2(x1, x2) {
+	var resultSum = 0;
+	if (x1<=x2){
+		for (var i=x1; i<=x2; i++)
+		{
+			resultSum+=i;
+		}
+	}
+	else {
+		for (var i=x1; i>=x2; i--)
+		{
+			resultSum+=i;
+		}		
+	}
+	return resultSum;
 }
