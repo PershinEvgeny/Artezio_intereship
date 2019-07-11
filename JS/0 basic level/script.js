@@ -40,3 +40,8 @@ function sumX1X2(x1, x2) {
 	}
 	return resultSum;
 }
+//функция очистки полей ввода х1,х2
+function clearClick() {
+	document.getElementById('x1').value="";
+	document.getElementById('x2').value="";
+}
