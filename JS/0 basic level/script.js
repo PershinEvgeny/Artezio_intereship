@@ -18,10 +18,13 @@ function buttonClick() {
 	else {
 		var resultDiv = document.getElementById('result');		
 		if (check==0) {
-		resultDiv.append("Cумма всех чисел от x1 до x2 = " + sumX1X2(x1,x2));
+			resultDiv.append("Cумма всех чисел от x1 до x2 = " + sumX1X2(x1,x2));
 		}
 		else if(check==1) {
 			resultDiv.append("Произведение всех чисел от x1 до x2 = " + mulX1X2(x1,x2));
+		}
+		else if (check==2) {
+			resultDiv.append("Простые числа в промежутке от x1 до x2 = " + simpleX1X2(x1,x2));
 		}
 	}
 }
@@ -62,6 +65,26 @@ function mulX1X2(x1, x2) {
 		}
 	}
 	return resultMul;
+}
+//функция нахождения простых чисел в промежутке х1 и х2
+function simpleX1X2(x1, x2) {
+	var simple = [];
+	var n = 0;
+	for (var i=x1; i<=x2; i++) {
+		for (var j=2; j<=i; j++) {
+			if (i%j==0) {
+				n++;
+			}
+		}
+		if (n==1) {
+			n=0;
+			simple.push(i);
+		}
+		else {
+			n=0;
+		}
+	}
+	return simple
 }
 //функция очистки полей ввода х1,х2
 function clearClick() {
